@@ -1,5 +1,5 @@
 @echo off
-title Software Requirement for Trapped Project JV4 - g144hz
+title Software Downloader for Trapped Project JV4 - g144hz
 chcp 65001 > nul
 color 5
 
