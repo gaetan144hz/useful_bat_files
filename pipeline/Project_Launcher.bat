@@ -34,17 +34,17 @@ set UNREALPROJECT_PATH="C:\%USERPROFILE%\Documents\Unreal Projects\UE5_Projects\
 set UNITYPROJECT_PATH="C:\Program Files\Unity Hub\Unity Hub.exe"
 set GODOT_PATH="C:\%USERPROFILE%\Documents\Godot_v4.2.2\Godot_v4.2.2-stable_mono_win64.exe"
 
-:launch_tools
-if %TOOLS% == "true" (
-    for %%s in (%STARTING_PAGE%) do (
-        start %%s
-    )
-    echo -----------------------------------------
-    echo Lancement des Outils de Gestion de Projet
-    echo -----------------------------------------
-) else (
-    echo Launch Tools on %TOOLS%
-)
+rem :launch_tools
+rem if %TOOLS% == "true" (
+rem     for %%s in ( %STARTING_PAGE% ) do (
+rem         start %%s
+rem     )
+rem     echo -----------------------------------------
+rem     echo Lancement des Outils de Gestion de Projet
+rem     echo -----------------------------------------
+rem ) else (
+rem     echo Launch Tools on %TOOLS%
+rem )
 
 :launch_perforce
 if %PERFORCE% == "true" (
