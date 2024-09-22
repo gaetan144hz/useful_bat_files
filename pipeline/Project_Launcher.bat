@@ -13,6 +13,10 @@ echo.          ███████╗██║  ██║╚██████
 echo.          ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 echo.
 
+::Espaces dans les variables : Vous avez des espaces entre le nom de la variable et le signe égal dans les commandes set. En batch, ces espaces sont considérés comme faisant partie du nom de la variable, ce qui entraîne des problèmes lors de l'évaluation.
+::Comparaison de chaînes : Pour comparer des chaînes dans un script batch, il faut s'assurer que les guillemets sont bien placés dans les expressions if.
+::Utilisation correcte de delayed expansion : Lorsque vous utilisez enabledelayedexpansion, vous devez utiliser !variable! au lieu de %variable% pour les variables à l'intérieur des boucles ou des blocs conditionnels.
+
 :set
 set PROJECT="Trapped"
 set PIPELINE_SITE="true"
