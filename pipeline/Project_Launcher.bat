@@ -15,112 +15,146 @@ echo.
 
 :set
 set PROJECT="Trapped"
-set TOOLS = "true"
-set PERFORCE = "false"
-set GIT = "true"
-set STEAM = "true"
-set OCULUS = "false"
-set UNREAL = "true"
-set UNITY = "false"
-set GODOT = "true"
+set PIPELINE_SITE="true"
+set PERFORCE="false"
+set GIT="true"
+set STEAM="true"
+set OCULUS="false"
+set UNREAL="false"
+set UNITY="false"
+set GODOT="false"
 
 :setPath
-set "STARTING_PAGE=http://orteil.dashnet.org/cookieclicker/, https://riskofrain2.fandom.com/wiki/Risk_of_Rain_2_Wiki"
+set "STARTING_PAGE=https://orteil.dashnet.org/cookieclicker/, https://riskofrain2.fandom.com/wiki/Risk_of_Rain_2_Wiki"
 set PERFORCE_PATH="C:/ProgramFiles/Perforce/p4v.exe"
-set GIT_PATH="C:\%USERPROFILE%\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+set GIT_PATH="%USERPROFILE%\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
 set STEAM_PATH="C:\Program Files (x86)\Steam\steam.exe"
 set OCULUS_PATH="C:\Program Files\Oculus\Support\oculus-client\OculusClient.exe"
-set UNREALPROJECT_PATH="C:\%USERPROFILE%\Documents\Unreal Projects\UE5_Projects\GDU_Trapped\GDU_Trapped.uproject"
+set UNREALPROJECT_PATH="%USERPROFILE%\Documents\Unreal Projects\UE5_Projects\GDU_Trapped\GDU_Trapped.uproject"
 set UNITYPROJECT_PATH="C:\Program Files\Unity Hub\Unity Hub.exe"
-set GODOT_PATH="C:\%USERPROFILE%\Documents\Godot_v4.2.2\Godot_v4.2.2-stable_mono_win64.exe"
+set GODOT_PATH="%USERPROFILE%\Documents\Godot_v4.2.2\Godot_v4.2.2-stable_mono_win64.exe"
 
-rem :launch_tools
-rem if %TOOLS% == "true" (
-rem     for %%s in ( %STARTING_PAGE% ) do (
-rem         start %%s
-rem     )
-rem     echo -----------------------------------------
-rem     echo Lancement des Outils de Gestion de Projet
-rem     echo -----------------------------------------
-rem ) else (
-rem     echo Launch Tools on %TOOLS%
-rem )
+:launch_pipeline_site
+if !PIPELINE_SITE!=="true" (
+    for %%s in (!STARTING_PAGE!) do (
+        start "" %%s
+    )
+    echo.
+    echo -----------------------------------------
+    echo Lancement des Outils de Gestion de Projet
+    echo -----------------------------------------
+    echo.
+) else (
+    echo.
+    echo Pipeline Site set on !PIPELINE_SITE!
+    echo.
+)
 
 :launch_perforce
-if %PERFORCE% == "true" (
-    start "Perforce" "%PERFORCE_PATH%"
+if !PERFORCE!=="true" (
+    start "Perforce" !PERFORCE_PATH!
+    echo.
     echo ------------------
     echo Lancement Perforce
     echo ------------------
+    echo.
 ) else (
-    echo Launch Perforce on %PERFORCE%
+    echo.
+    echo Perforce set on !PERFORCE!
+    echo.
 )
 
 :launch_git
-if %GIT% == "true" (
-    start "Git" "%GIT_PATH%"
+if !GIT!=="true" (
+    start "Git" !GIT_PATH!
+    echo.
     echo ----------------
     echo Lancement de Git
     echo ----------------
+    echo.
 ) else (
-    echo Launch Git on %GIT%
+    echo.
+    echo Git set on !GIT!
+    echo.
 )
 
 :launch_steam
-if %STEAM% == "true" (
-    start "Steam" "%STEAM_PATH%"
+if !STEAM!=="true" (
+    start "Steam" !STEAM_PATH!
+    echo.
     echo ------------------
     echo Lancement de Steam
     echo ------------------
+    echo.
 ) else (
-    echo Launch Steam on %STEAM%
+    echo.
+    echo Steam set on !STEAM!
+    echo.
 )
 
 :launch_oculus
-if %OCULUS% == "true" (
-    start "Oculus" "%OCULUS_PATH%"
+if !OCULUS!=="true" (
+    start "Oculus" !OCULUS_PATH!
+    echo.
     echo -------------------
     echo Lancement de Oculus
     echo -------------------
+    echo.
 ) else (
-    echo Launch Oculus on %OCULUS%
+    echo.
+    echo MetaOculus set on !OCULUS!
+    echo.
 )
 
 :launch_unreal
-if %UNREAL% == "true" (
-    start "%PROJECT%" "%UNREALPROJECT_PATH%"
+if !UNREAL!=="true" (
+    start !PROJECT! !UNREALPROJECT_PATH!
+    echo.
     echo --------------------------------------
-    echo Lancement du Projet Unreal "%PROJECT%"
+    echo Lancement du Projet Unreal !PROJECT!
     echo --------------------------------------
+    echo.
 ) else (
-    echo Launch Unreal Project on %UNREAL%
+    echo.
+    echo Unreal Project set on !UNREAL!
+    echo.
 )
 
-
 :launch_unity
-if %UNITY% == "true" (
-    start "%PROJECT%" "%UNITYPROJECT_PATH%"
+if !UNITY!=="true" (
+    start !PROJECT! !UNITYPROJECT_PATH!
+    echo.
     echo --------------------------------------
-    echo Lancement du Projet Unity "%PROJECT%"
+    echo Lancement du Projet Unity !PROJECT!
     echo --------------------------------------
+    echo.
 ) else (
-    echo Launch Unity Project on %UNITY%
+    echo.
+    echo Unity Project set on !UNITY!
+    echo.
 )
 
 :launch_godot
-if %GODOT% == "true" (
-    start "%PROJECT%" "%GODOT_PATH%"
+if !GODOT!=="true" (
+    start !PROJECT! !GODOT_PATH!
+    echo.
     echo --------------------------------------
-    echo Lancement du Projet Unity "%PROJECT%"
+    echo Lancement du Projet Godot !PROJECT!
     echo --------------------------------------
+    echo.
 ) else (
-    echo Launch GODOT Project on %GODOT%
+    echo.
+    echo Godot Project set on !GODOT!
+    echo.
 )
 
 :end
+echo.
 echo ----------------
 echo FIN DU PROCESSUS
 echo ----------------
+echo.
 endlocal
-pause
+echo Fermeture du script dans 30 secondes
+timeout /t 30
 exit /b
