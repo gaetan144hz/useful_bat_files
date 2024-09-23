@@ -1,8 +1,9 @@
 @echo off
-title Software Requirement for Trapped Project JV4 - g144hz
+title Software Downloader for Trapped Project JV4 - g144hz
 chcp 65001 > nul
 color 5
 
+echo HOST: Run DOWNLOADER on %computername% %date% %time%
 echo.
 echo.           ██████╗  ██████╗ ██╗    ██╗███╗   ██╗██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗           
 echo.           ██╔══██╗██╔═══██╗██║    ██║████╗  ██║██║     ██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗          
@@ -22,6 +23,7 @@ set "blenderKit=false"
 set "notion=false"
 set "obsidian=false"
 set "visualStudioCode=false"
+set "visualStudio=false"
 set "sublimeText=false"
 set "perforce=false"
 set "unityHub=false"
@@ -41,15 +43,17 @@ echo 5. BlenderKit
 echo 6. Notion 
 echo 7. Obsidian 
 echo 8. VisualStudioCode 
-echo 9. SublimeText
-echo 10. Perforce 
-echo 11. UnityHub 
-echo 12. Godot 
-echo 13. GithubDesktop 
-echo 14. Quit 
+echo 9. visualStudio2022
+echo 10. SublimeText
+echo 11. Perforce 
+echo 12. UnityHub 
+echo 13. Godot 
+echo 14. GithubDesktop 
+echo 0. Quit 
 set /p choices="Choisissez une ou plusieurs options pour télécharger les éxécutables (séparées par des espaces) [1-14] : "
 
 for %%i in (%choices%) do (
+    if "%%i"=="0" set "quit=true"
     if "%%i"=="1" set "steam=true"
     if "%%i"=="2" set "discord=true"
     if "%%i"=="3" set "quixelMixer=true"
@@ -58,11 +62,13 @@ for %%i in (%choices%) do (
     if "%%i"=="6" set "notion=true"
     if "%%i"=="7" set "obsidian=true"
     if "%%i"=="8" set "visualStudioCode=true"
-    if "%%i"=="9" set "perforce=true"
-    if "%%i"=="10" set "unityHub=true"
-    if "%%i"=="11" set "godot=true"
-    if "%%i"=="12" set "githubDesktop=true"
-    if "%%i"=="13" set "quit=true"
+    if "%%i"=="9" set "visualStudio=true"
+    if "%%i"=="10" set "perforce=true"
+    if "%%i"=="11" set "unityHub=true"
+    if "%%i"=="12" set "godot=true"
+    if "%%i"=="13" set "githubDesktop=true"
+
+    https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
 )
 
 echo Execution des options selectionnees :
@@ -114,6 +120,12 @@ if "%visualStudioCode%"=="true" (
     timeout /t 1
 )
 
+if "%visualStudio%"=="true" (
+    echo Telechargement de VisualStudioCode 
+    start "" "https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false"
+    timeout /t 1
+)
+
 if "%sublimeText%"=="true" (
     echo Telechargement de Sublime Text 
     start "" "https://www.sublimetext.com/download_thanks?target=win-x64"
@@ -145,6 +157,7 @@ if "%githubDesktop%"=="true" (
 )
 
 if "%quit%"=="true" (
+    echo.
     echo Vous quitterez le Menu dans 5s 
     timeout /t 5
     exit /b
