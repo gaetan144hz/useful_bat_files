@@ -67,8 +67,6 @@ for %%i in (%choices%) do (
     if "%%i"=="11" set "unityHub=true"
     if "%%i"=="12" set "godot=true"
     if "%%i"=="13" set "githubDesktop=true"
-
-    https://visualstudio.microsoft.com/fr/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
 )
 
 echo Execution des options selectionnees :
